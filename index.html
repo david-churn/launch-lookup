@@ -4,10 +4,43 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-    <link rel="stylesheet" href="/styles/normalize.css">
-    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="./styles/normalize.css">
+    <link rel="stylesheet" href="./styles/style.css">
   </head>
   <body>
-    <script type="text/javascript" src="/scripts/script.js"></script>
+    <header>
+      <h1 class="center">Project Launch</h1>
+    </header>
+    <main>
+      <form class="" action="index.html" method="post">
+        <h2>Launch Parameters</h2>
+        <div>Mission Name (keyword): <input type="text" id="msn-name" value=""></div>
+        <div>Launch Date (start - end):
+          <input type="date" id="start-dt" value=""> -
+          <input type="date" id="end-dt" value="1">
+        </div>
+        <div>Mission Status (1-8):
+          <input type="text" id="msn-status" value="">
+        </div>
+        <div>Launch Provider (abbr):
+          <input type="text" id="lsp-abbrev" value="">
+        </div>
+        <button type="button" id="search-it">Search</button>
+        <button type="button" id="clear-it">Clear</button>
+        <div class="">List Items returned
+          <input type="text" id="list-qty" value="10">
+        </div>
+      </form>
+      <div class="">
+        <h2 class="">Mission List</h2>
+        <ul class="mlist">
+        </ul>
+      </div>
+      <div id="mdetail"></div>
+    </main>
+    <footer>
+      <p id="message">no error message</p>
+    </footer>
+    <script type="text/javascript" src="./scripts/script.js"></script>
   </body>
 </html>
