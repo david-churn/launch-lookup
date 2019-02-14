@@ -17,8 +17,16 @@ button {
 .center {
   text-align: center;
 }
+.inblock {
+  display:inline-block;
+  margin: 0.5em;
+  height: 6em;
+  width: 6em;
+  vertical-align: top;
+  border:solid 1px black;
+}
 
-/*  Set up grid system  */
+/*  Set up grid system (used?) */
 .unit {
   padding: 0.5em;
   background-color: lightblue;

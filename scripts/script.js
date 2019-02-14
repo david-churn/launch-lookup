@@ -50,6 +50,7 @@ searchBtnObj.addEventListener('click', function() {
 });
 
 function postLaunch(listObj) {
+//! Switch to inline blocks, class="inblock"
   let listRow = document.createElement('li');
 
   listRow.innerHTML = `(${listObj.id})
