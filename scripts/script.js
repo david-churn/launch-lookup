@@ -23,30 +23,58 @@ const messageObj = document.getElementById("message");
 
 searchBtnObj.addEventListener('click', function() {
   resetPage();
+  let searchStr = '';
+  // Check the input and use valid values
+  if (msnNameObj.innerText != '') {
+    searchStr += ('name=' + Number(listQtyObj.innerText) + '&')
+  }
+  if (startDtObj.innerText != '') {
+    searchStr += ('startdate=' + startDtObj.innerText + '&')
+  }
+  if (endDtObj.innerText != '') {
+    searchStr += ('enddate=' + endDtObj.innerText + '&')
+  }
+  if (statusObj.innerText != '') {
+    searchStr += ('status=' + statusObj.innerText + '&')
+  }
+  if (abbrevObj.innerText != '') {
+    searchStr += ('abbrevObj=' + Number(abbrevObj.innerText) + '&')
+  }
+  searchStr += ('limit=' + Number(listQtyObj.innerText));
+  // What was just built?!?
+  console.log(searchStr);
+
   // fetch a list from launchlibrary
-  // build the mission list creating event listeners as you go.  (See trivia quiz)
 
   // default call to launches
   let llurl =  "https://launchlibrary.net/1.4/launch";
   fetch(llurl)
-    .then((response) => response.json())
-    .then(function(respObj) {
+    .then(function(response) {
+      console.log(response);
+      console.log(response.status);
+      return response.json();
+    })
+    .then(function(respJson) {
       // error handling?
-      return JSON.stringify(respObj);
+      return JSON.stringify(respJson);
     })
     .then(function(launchObj) {
-      console.log(launchObj);
-      let maxQty = launchObj.count;
-      console.log(`maxQty=${maxQty}`);
-      if ( maxQty > 0 ) {
-        for (let x=0; x < maxQty; x++) {
-          postLaunch(launchObj.launches[x])
-        }
-      }
-      else {
-        messageObj.innerHTML = `Launch Library says ${launchObj}`;
-      }
-    })
+      // Does the message look different on an error?
+      console.log('object=', launchObj);
+      console.log('array=', launchObj.launches);
+      console.log('count=', launchObj.count);
+      console.log(`array length=${launchObj.launches.length}`);
+      // if ( maxQty > 0 ) {
+      //   for (let x=0; x < maxQty; x++) {
+      //     postLaunch(launchObj.launches[x])
+      //   }
+      // }
+      // else {
+      //   messageObj.innerHTML = `Launch Library says ${launchObj}`;
+      // }
+    });
+    // build the mission list creating event listeners as you go.  (See trivia quiz)
+
 });
 
 function postLaunch(listObj) {
@@ -73,13 +101,13 @@ clearBtnObj.addEventListener('click', function() {
 // clean up mission list (+event listeners) and mission detail areas
 function resetPage() {
   console.log(`resetPage`);
-  listQtyObj.innerHTML = '10';
-  msnNameObj.innerHTML = ' ';
-  startDtObj.innerHTML = '';
-  endDtObj.innerHTML = '';
-  statusObj.innerHTML = '';
-  abbrevObj.innerHTML = '';
-  messageObj.innerHTML = '';
+  listQtyObj.value = '10';
+  msnNameObj.value = ' ';
+  startDtObj.value = '';
+  endDtObj.value = '';
+  statusObj.value = '';
+  abbrevObj.value = '';
+  messageObj.value = '';
 
   // clean up mission list (while loop)
   // clear mission detail
