@@ -25,22 +25,22 @@ searchBtnObj.addEventListener('click', function() {
   resetPage();
   let searchStr = '';
   // Check the input and use valid values
-  if (msnNameObj.innerText != '') {
-    searchStr += ('name=' + Number(listQtyObj.innerText) + '&')
+  if (msnNameObj.value != '') {
+    searchStr += ('name=' + Number(listQtyObj.value) + '&')
   }
-  if (startDtObj.innerText != '') {
-    searchStr += ('startdate=' + startDtObj.innerText + '&')
+  if (startDtObj.value != '') {
+    searchStr += ('startdate=' + startDtObj.value + '&')
   }
-  if (endDtObj.innerText != '') {
-    searchStr += ('enddate=' + endDtObj.innerText + '&')
+  if (endDtObj.value != '') {
+    searchStr += ('enddate=' + endDtObj.value + '&')
   }
-  if (statusObj.innerText != '') {
-    searchStr += ('status=' + statusObj.innerText + '&')
+  if (statusObj.value != '') {
+    searchStr += ('status=' + statusObj.value + '&')
   }
-  if (abbrevObj.innerText != '') {
-    searchStr += ('abbrevObj=' + Number(abbrevObj.innerText) + '&')
+  if (abbrevObj.value != '') {
+    searchStr += ('abbrevObj=' + Number(abbrevObj.value) + '&')
   }
-  searchStr += ('limit=' + Number(listQtyObj.innerText));
+  searchStr += ('limit=' + Number(listQtyObj.value));
   // What was just built?!?
   console.log(searchStr);
 
@@ -56,7 +56,8 @@ searchBtnObj.addEventListener('click', function() {
     })
     .then(function(respJson) {
       // error handling?
-      return JSON.stringify(respJson);
+      return JSON.parse(respJson);
+      // passing to the next one may not be needed.
     })
     .then(function(launchObj) {
       // Does the message look different on an error?
@@ -70,7 +71,7 @@ searchBtnObj.addEventListener('click', function() {
       //   }
       // }
       // else {
-      //   messageObj.innerHTML = `Launch Library says ${launchObj}`;
+      messageObj.innerHTML = `Launch Library says ${launchObj}`;
       // }
     });
     // build the mission list creating event listeners as you go.  (See trivia quiz)
