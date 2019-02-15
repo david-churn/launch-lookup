@@ -6,6 +6,9 @@
   box-sizing: border-box;
   border: dashed 1px black;
 }
+.center {
+  text-align: center;
+}
 body {
   margin: 0 4em;
 }
@@ -14,8 +17,12 @@ button {
   margin: 0.5em;
   min-width: 10em;
 }
-.center {
-  text-align: center;
+li:hover {
+  background: lightgray;
+}
+footer {
+  background: brown;
+  color: linen;
 }
 .inblock {
   display:inline-block;
