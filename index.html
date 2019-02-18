@@ -12,10 +12,15 @@
       <h1>Rocket Launches</h1>
     </header>
     <main>
-      <form class="" action="index.html" method="post">
-        <h2>Launch Parameters</h2>
-        <div>Mission Name (keyword): <input type="text" id="msn-name" value=""></div>
-        <div>Launch Date (start - end):
+      <h2>Launch Parameters</h2>
+      <!-- <form class="" action="index.html" method="post"> -->
+      <div class="inblock">
+        <div>Mission Name (keyword)</div>
+        <div>
+          <input type="text" id="msn-name" value="">
+        </div>
+        <div>Launch Date (start - end)</div>
+        <div>
           <input type="date" id="start-dt" value=""> -
           <input type="date" id="end-dt" value="">
         </div>
@@ -26,16 +31,22 @@
         </div>
         <button type="button" id="search-it">Search</button>
         <button type="button" id="clear-it">Clear</button>
-        <div class="">List Items returned
+      </div>
+      <div class="inblock">
+        <div>List Items returned
           <input type="number" id="list-qty" value="10">
         </div>
-      </form>
+      </div>
+      <!-- </form> -->
       <div class="">
-        <h2 id="mtable-hdr" class="hidden">Mission List</h2>
+        <h2 id="mtable-hdr" class="hidden">Launch List</h2>
         <table id="mtable">
     		</table>
       </div>
-      <div id="mdetail"></div>
+      <div class="">
+        <h2 id="l-header" class="hidden">Launch</h2>
+        <div id="mdetail"></div>
+      </div>
     </main>
     <footer>
       <p id="message"></p>

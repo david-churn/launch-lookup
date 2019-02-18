@@ -15,6 +15,7 @@ const searchBtnObj = document.getElementById("search-it");
 const clearBtnObj = document.getElementById("clear-it");
 const msnTableHdrObj = document.getElementById("mtable-hdr");
 const msnTableObj = document.getElementById("mtable");
+const msnDetailHdrObj = document.getElementById("l-header");
 const msnDetailObj = document.getElementById("mdetail");
 const messageObj = document.getElementById("message");
 const llUrl = "https://launchlibrary.net/1.4/";
@@ -129,7 +130,7 @@ function addTableHeading() {
   launchID.outerHTML = "<th class='hidden'>ID</th>";
 }
 
-// build the mission list creating event listeners as you go.  (See trivia quiz)
+// build the mission list creating event listeners as you go.
 function postLaunch(listObj) {
   let row = msnTableObj.insertRow();
   msnTableObj.appendChild(row);
@@ -139,6 +140,7 @@ function postLaunch(listObj) {
 
   let rowStatus = row.insertCell();
   rowStatus.innerHTML = statusArr.find(obj => obj.id === listObj.status).name;
+  rowStatus.setAttribute("class","center");
 
   let launchTsp = row.insertCell();
   launchTsp.innerHTML = listObj.windowstart;
@@ -205,18 +207,23 @@ function getDetail(clickObj) {
 }
 
 function postDetail(detailObj) {
-  console.log('postDetail=', detailObj);
+  msnDetailHdrObj.setAttribute("class","");
+
   let launchNm = document.createElement('h2');
   launchNm.innerHTML = detailObj.name;
   msnDetailObj.appendChild(launchNm);
 
-  let msnStat = document.createElement('p');
-  msnStat.innerHTML = `mission status: ${statusArr.find(obj => obj.id === detailObj.status).description}`;
-  msnDetailObj.appendChild(msnStat);
+  let lspNm = document.createElement('p');
+  lspNm.innerHTML = `by ${detailObj.lsp.name}`;
+  msnDetailObj.appendChild(lspNm);
 
   let launchDt = document.createElement('p');
-  launchDt.innerHTML = `launch date: ${detailObj.net}`;
+  launchDt.innerHTML = `launch: ${detailObj.net}`;
   msnDetailObj.appendChild(launchDt);
+
+  let msnStat = document.createElement('p');
+  msnStat.innerHTML = `status: ${statusArr.find(obj => obj.id === detailObj.status).description}`;
+  msnDetailObj.appendChild(msnStat);
 
   let whereNm = document.createElement('p');
   whereNm.innerHTML = `from: ${detailObj.location.name}`;
@@ -226,38 +233,22 @@ function postDetail(detailObj) {
   rocketNm.innerHTML = `on: ${detailObj.rocket.name}`;
   msnDetailObj.appendChild(rocketNm);
 
-  let missionHdr = document.createElement('h3');
-  missionHdr.innerHTML = `Missions`;
-  msnDetailObj.appendChild(missionHdr);
+  if (detailObj.missions.length > 0) {
+    let missionHdr = document.createElement('h3');
+    missionHdr.innerHTML = `Missions`;
+    msnDetailObj.appendChild(missionHdr);
 
-  for (mission in detailObj.missions) {
-    let missionNm = document.createElement('h4');
-    missionNm.innerHTML = `on: ${mission.name}`;
-    msnDetailObj.appendChild(missionNm);
-
-    let missionType = document.createElement('p');
-    missionType.innerHTML = `on: ${mission.typeName}`;
-    msnDetailObj.appendChild(missionType);
-
-    let missionDesc = document.createElement('p');
-    missionDesc.innerHTML = `on: ${mission.description}`;
-    msnDetailObj.appendChild(missionDesc);
+    for (let mission of detailObj.missions) {
+      let missionNm = document.createElement('p');
+      missionNm.innerHTML = `${mission.name} - ${mission.description}`;
+      msnDetailObj.appendChild(missionNm);
+    }
   }
-  // msnTableHdrObj.setAttribute("class","hidden");
-
-  // <a class="flex4 center" href="./DCCresume.pdf" target="_blank">resume</a>
-
-  // listRow.innerHTML = `(${listObj.id})
-  //    ${listObj.windowstart} UTC
-  //    ${listObj.status}
-  //    ${listObj.lsp}
-  //    ${(listObj.name)}
-  //   `;
-  //
-  // msnTableObj.appendChild(listRow);
 };
 
 function clearDetail() {
+  msnDetailHdrObj.setAttribute("class","hidden");
+
   while (msnDetailObj.hasChildNodes()) {
     msnDetailObj.removeChild(msnDetailObj.childNodes[0]);
   };
