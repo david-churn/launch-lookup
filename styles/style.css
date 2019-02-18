@@ -1,6 +1,6 @@
-
 /* 2/12/2019 David Churn created */
 
+/* Themed front from dafont.com */
 @font-face {
   font-family: 'spaceranger';
   src: url('../fonts/spacerangerexpandital.ttf') format('truetype');
@@ -20,7 +20,7 @@
   text-align: center;
 }
 .hidden {
-  /* background: lightgreen; */
+  /* background: #ffa630; */
   display:none;
 }
 .hilite:hover {
@@ -39,6 +39,7 @@ input, #msn-status {
 }
 button {
   background: #3e92cc;
+  border-radius: 50%;
   font-family: 'spaceranger',sans-serif;
   margin: 0.5em;
   min-width: 10em;
@@ -64,7 +65,7 @@ footer {
   vertical-align: top;
 }
 
-/*  Set up grid system (used?) */
+/*  Set up grid system ( not currently used) */
 .unit {
   padding: 0.5em;
   background-color: #3e92cc;

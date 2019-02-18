@@ -3,8 +3,6 @@
 //   https://launchlibrary.net
 // 2/12/2019 David Churn created
 
-console.log('Project Launch ready!');
-
 // set address for screen Items
 const listQtyObj = document.getElementById("list-qty");
 const msnNameObj = document.getElementById("msn-name");
@@ -60,6 +58,9 @@ fetch(lspUrl)
       messageObj.innerHTML = `Launch Library says ${lspObj.msg}`;
     }
   });
+
+// Everything requested and waiting for a human action.
+  console.log('Project Launch ready!');
 
 searchBtnObj.addEventListener('click', function() {
   clearList();

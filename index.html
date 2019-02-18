@@ -3,7 +3,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Rocket Launches</title>
     <link rel="stylesheet" href="./styles/normalize.css">
     <link rel="stylesheet" href="./styles/style.css">
   </head>
@@ -13,35 +13,34 @@
     </header>
     <main>
       <h2>Launch Parameters</h2>
-      <!-- <form class="" action="index.html" method="post"> -->
-      <div class="inblock">
-        <div>Mission Name (keyword)</div>
-        <div>
-          <input type="text" id="msn-name" value="">
+      <div class="">
+        <div class="inblock">
+          <div>Mission Name (keyword)</div>
+          <div>
+            <input type="text" id="msn-name" value="">
+          </div>
+          <div>Launch Date (start - end)</div>
+          <div>
+            <input type="date" id="start-dt" value=""> -
+            <input type="date" id="end-dt" value="">
+          </div>
+          <div>Mission Status:
+            <select class="" id="msn-status">
+              <option value="any" selected>All</option>
+            </select>
+          </div>
+          <button type="button" id="search-it">Search</button>
+          <button type="button" id="clear-it">Clear</button>
         </div>
-        <div>Launch Date (start - end)</div>
-        <div>
-          <input type="date" id="start-dt" value=""> -
-          <input type="date" id="end-dt" value="">
+        <div class="inblock">
+          <div>List Items returned
+            <input type="number" id="list-qty" value="10">
+          </div>
         </div>
-        <div>Mission Status:
-          <select class="" id="msn-status">
-            <option value="any" selected>All</option>
-          </select>
-        </div>
-        <button type="button" id="search-it">Search</button>
-        <button type="button" id="clear-it">Clear</button>
       </div>
-      <div class="inblock">
-        <div>List Items returned
-          <input type="number" id="list-qty" value="10">
-        </div>
-      </div>
-      <!-- </form> -->
       <div class="">
         <h2 id="mtable-hdr" class="hidden">Launch List</h2>
-        <table id="mtable">
-    		</table>
+        <table id="mtable"></table>
       </div>
       <div class="">
         <h2 id="l-header" class="hidden">Launch</h2>
