@@ -1,0 +1,10 @@
+{
+  "browser" : true,
+  "globals" : {
+    "console" : true
+  },
+  "eqeqeq" : true,
+  "latedef" : true,
+  "nocomma" : true,
+  "unused" : true
+}

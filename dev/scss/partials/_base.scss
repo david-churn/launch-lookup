@@ -1,0 +1,51 @@
+/* 2/12/2019 David Churn created */
+
+/* Global declarations */
+* {
+  box-sizing: border-box;
+}
+.center {
+  text-align: center;
+}
+.hidden {
+  /* background: $saffron */
+  display:none;
+}
+.hilite:hover {
+  background: $ltblue;
+  color: $platinum;
+}
+body {
+  margin: 0 1em;
+  font-size: 1.5em;
+  background: $platinum;
+}
+h1, h2, h3, h4, h5, h6, footer {
+  font-family: $font-tech;
+  font-weight:normal;
+}
+input, #msn-status {
+  margin: 0.3em;
+  padding: 0.3em;
+}
+button {
+  background: $ltblue;
+  border-radius: 50%;
+  font-family: $font-tech;
+  margin: 0.5em;
+  min-width: 10em;
+  min-height: 2em;
+}
+button:hover {
+  color: $platinum;
+}
+th, td {
+  padding: 1em;
+  margin: 1em;
+  border-bottom: solid 1px $charcoal;
+}
+#mdetail {
+  background: $ltblue;
+  padding: 0 2em;
+  max-width: 50em;
+}
