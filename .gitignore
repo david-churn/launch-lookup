@@ -1,5 +1,8 @@
 build/
 gulpfile.js
+package.json
+.jshintrc
+.gitignore
 # Dependency directories
 node_modules/
 
